@@ -1,0 +1,23 @@
+{
+  "name": "ewald/mago-test",
+  "require": {
+    "php": "^8.4"
+  },
+  "require-dev": {
+    "carthage-software/mago": "^1.0.0-rc.3",
+    "phpunit/phpunit": "^12.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ewald\\MagoTest\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "carthage-software/mago": true
+    },
+    "platform": {
+      "php": "8.4"
+    }
+  }
+}
