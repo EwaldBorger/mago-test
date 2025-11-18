@@ -15,7 +15,7 @@ class NeedsParenthesesTest extends TestCase
             new NeedsParenthesesObject(['name' => 'b']),
         ];
         $needsParentheses = new NeedsParentheses($items);
-        $this->assertCount(2, $needsParentheses);
+        $this->assertCount(2, $needsParentheses->collection);
     }
 
     public function testConstructWithArrays()
@@ -25,6 +25,6 @@ class NeedsParenthesesTest extends TestCase
             ['name' => 'b'],
         ];
         $needsParentheses = new NeedsParentheses($items);
-        $this->assertCount(2, $needsParentheses);
+        $this->assertCount(2, $needsParentheses->collection);
     }
 }

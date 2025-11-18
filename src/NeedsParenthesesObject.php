@@ -8,6 +8,6 @@ class NeedsParenthesesObject
 
     public function __construct(array $fields)
     {
-        $this->name = $fields['name'];
+        $this->name = (string) $fields['name'];
     }
 }

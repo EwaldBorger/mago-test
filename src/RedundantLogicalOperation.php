@@ -11,7 +11,13 @@ class RedundantLogicalOperation
     {
         $collection = [];
         foreach ($knownModels as $model) {
-            if (!is_array($model) || !array_key_exists('name', $model)) {
+            if (
+                !is_array($model)
+                || !array_key_exists(
+                    key: 'name',
+                    array: $model,
+                )
+            ) {
                 continue;
             }
 
@@ -28,7 +34,13 @@ class RedundantLogicalOperation
     {
         $collection = [];
         foreach ($knownModels as $model) {
-            if (!array_key_exists('name', $model) || !is_array($model)) {
+            if (
+                !array_key_exists(
+                    key: 'name',
+                    array: $model,
+                )
+                || !is_array($model)
+            ) {
                 continue;
             }
 
