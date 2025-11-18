@@ -1,4 +1,9 @@
-# Some observations
+# Some observations in using mago
+
+We are looking into using [mago](https://mago.carthage.software/) to replace our phplint/phpstan/ecs combination.
+
+So far we are really impressed, with the lint/analyze/format options (guard is a step to far for us at the moment).
+But we did find some odd things, and this repo tries to collect them and isolate the issues from our actual codebase.
 
 First of all: the pieces of code that I've isolated from one of our legacy codebases is pretty weird code.
 But that is where analyzers are brought in to help :)
@@ -142,3 +147,39 @@ $ vendor/bin/mago analyze --fix --unsafe --dry-run
                  continue;
              }
 ```
+
+## `format` removes needed parentheses in using a const as classname
+
+The essence:
+```php
+    protected const string COMPONENT_CLASS = NeedsParenthesesObject::class;
+
+    if ($item instanceof (static::COMPONENT_CLASS)) {
+        $this->collection[] = $item;
+    } elseif (is_array($item)) {
+        $this->collection[] = new (static::COMPONENT_CLASS)($item);
+    }
+```
+
+the mago formatter removes the parentheses in both these cases:
+```bash
+$ vendor/bin/mago format --dry-run
+diff of 'src/NeedsParentheses.php':
+--- original
++++ modified
+@@ -28,10 +28,10 @@
+         }
+
+         foreach ($items as $item) {
+-            if ($item instanceof (static::COMPONENT_CLASS)) {
++            if ($item instanceof static::COMPONENT_CLASS) {                                                                                                                                                                                                                                                          
+                 $this->collection[] = $item;                                                                                                                                                                                                                                                                         
+             } elseif (is_array($item)) {
+-                $this->collection[] = new (static::COMPONENT_CLASS)($item);
++                $this->collection[] = new static::COMPONENT_CLASS($item);                                                                                                                                                                                                                                            
+             }                                                                                                                                                                                                                                                                                                        
+         }
+     }
+```
+
+Except that that is not valid PHP...

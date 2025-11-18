@@ -31,3 +31,4 @@ jobs:
         run: |
           vendor/bin/mago analyze --reporting-format=github
           vendor/bin/mago analyze --fix --unsafe --dry-run
+          vendor/bin/mago format --dry-run
