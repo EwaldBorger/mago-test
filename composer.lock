@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d963c2e0e29f67f4a3e435006178825",
+    "content-hash": "a69466d80cdb0adf6fbcf9707267ef29",
     "packages": [],
     "packages-dev": [
         {
             "name": "carthage-software/mago",
-            "version": "1.0.0-rc.4",
+            "version": "1.0.0-rc.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carthage-software/mago.git",
-                "reference": "9ac0bf05a6b063a47f131c1ebf11251f592550e5"
+                "reference": "b8fbffa5e81676b010edf85c1445348744154702"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carthage-software/mago/zipball/9ac0bf05a6b063a47f131c1ebf11251f592550e5",
-                "reference": "9ac0bf05a6b063a47f131c1ebf11251f592550e5",
+                "url": "https://api.github.com/repos/carthage-software/mago/zipball/b8fbffa5e81676b010edf85c1445348744154702",
+                "reference": "b8fbffa5e81676b010edf85c1445348744154702",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
             ],
             "support": {
                 "issues": "https://github.com/carthage-software/mago/issues",
-                "source": "https://github.com/carthage-software/mago/tree/1.0.0-rc.4"
+                "source": "https://github.com/carthage-software/mago/tree/1.0.0-rc.7"
             },
             "funding": [
                 {
@@ -64,7 +64,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-24T00:42:49+00:00"
+            "time": "2025-12-02T19:47:41+00:00"
         },
         {
             "name": "myclabs/deep-copy",
